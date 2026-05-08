@@ -1,0 +1,170 @@
+Step-by-Step Process of Code Execution (MouseListenerExample / AWT Program)
+Step 1: Open Eclipse IDE
+
+Start Eclipse IDE
+
+Step 2: Create Java Project
+
+Click:
+
+File → New → Java Project
+
+Project name:
+
+AWTProject
+
+Click:
+
+Finish
+Step 3: Delete module-info.java
+
+In Package Explorer:
+
+Find:
+module-info.java
+Right click → Delete → OK
+
+This fixes AWT access issues.
+
+Step 4: Create Package
+
+Right click:
+
+src
+
+Select:
+
+New → Package
+
+Package name:
+
+mypackage
+
+Click Finish.
+
+Step 5: Create Java Class
+
+Right click package:
+
+mypackage
+
+Select:
+
+New → Class
+
+Class name:
+
+MouseListenerExample
+
+Tick:
+
+public static void main(String[] args)
+
+Click Finish.
+
+Step 6: Ensure File Name Matches Class Name
+
+File name must be:
+
+MouseListenerExample.java
+
+Class name must be:
+
+public class MouseListenerExample
+
+Both names must be identical.
+
+Step 7: Remove Default Code
+
+Delete Eclipse default code.
+
+Step 8: Paste Full Program
+
+Paste your complete MouseListener program code.
+
+Step 9: Save Program
+
+Press:
+
+Ctrl + S
+
+Eclipse automatically compiles code.
+
+If no red errors appear → compilation successful.
+
+Step 10: Run the Program
+
+Click:
+
+Run → Run As → Java Application
+
+OR click green ▶ Run button.
+
+Step 11: Program Starts Execution
+Internal Flow of Execution
+1. JVM Starts main()
+public static void main(String[] args)
+
+Execution begins here.
+
+2. Object Creation
+MouseListenerExample obj = new MouseListenerExample();
+
+Creates GUI object.
+
+3. Constructor Executes
+public MouseListenerExample()
+
+This:
+
+sets window title
+sets window size
+adds mouse listener
+prepares GUI
+4. Window Becomes Visible
+setVisible(true);
+
+Window appears on screen.
+
+5. Mouse Events Occur
+
+When user:
+
+clicks mouse
+presses mouse
+releases mouse
+enters window
+exits window
+
+corresponding methods execute.
+
+Example:
+
+mouseClicked()
+mousePressed()
+mouseReleased()
+6. Repaint Method Executes
+repaint();
+
+refreshes GUI window.
+
+7. paint(Graphics g) Executes
+
+Used to display output text/shapes.
+
+Example:
+
+g.drawString()
+Output
+
+AWT window opens.
+
+Mouse actions display messages inside window.
+
+Example:
+
+Mouse Clicked
+Mouse Pressed
+Mouse Released
+Important Viva Questions
+What is AWT?

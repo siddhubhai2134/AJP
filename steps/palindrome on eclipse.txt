@@ -1,0 +1,196 @@
+Step 1: Create Java Project
+
+Open Eclipse IDE
+
+Create project:
+
+File → New → Java Project
+
+Project name:
+
+RMIProject
+
+Click Finish.
+
+Step 2: Delete module-info.java
+
+If present:
+
+right click
+delete
+Step 3: Create Package
+
+Right click src
+
+New → Package
+
+Package name:
+
+rmi
+Step 4: Create Interface File
+
+Create class/interface:
+
+Palindrome.java
+
+Paste:
+
+package rmi;
+
+import java.rmi.*;
+
+public interface Palindrome extends Remote {
+
+    public String checkPalindrome(String str)
+            throws RemoteException;
+}
+Step 5: Create Server Implementation
+
+Create file:
+
+PalindromeImpl.java
+
+Paste:
+
+package rmi;
+
+import java.rmi.*;
+import java.rmi.server.*;
+
+public class PalindromeImpl extends UnicastRemoteObject
+        implements Palindrome {
+
+    public PalindromeImpl() throws RemoteException {
+        super();
+    }
+
+    public String checkPalindrome(String str)
+            throws RemoteException {
+
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+
+        if (str.equals(rev))
+            return "Palindrome String";
+        else
+            return "Not Palindrome String";
+    }
+}
+Step 6: Create Server Program
+
+Create file:
+
+Server.java
+
+Paste:
+
+package rmi;
+
+import java.rmi.*;
+import java.rmi.registry.*;
+
+public class Server {
+
+    public static void main(String[] args) {
+
+        try {
+
+            PalindromeImpl obj = new PalindromeImpl();
+
+            LocateRegistry.createRegistry(1099);
+
+            Naming.rebind("PAL", obj);
+
+            System.out.println("Server Started");
+
+        } catch (Exception e) {
+
+            System.out.println(e);
+        }
+    }
+}
+Step 7: Create Client Program
+
+Create file:
+
+Client.java
+
+Paste:
+
+package rmi;
+
+import java.rmi.*;
+import java.util.Scanner;
+
+public class Client {
+
+    public static void main(String[] args) {
+
+        try {
+
+            Scanner sc = new Scanner(System.in);
+
+            Palindrome p =
+                    (Palindrome) Naming.lookup("rmi://localhost/PAL");
+
+            System.out.println("Enter String");
+
+            String str = sc.nextLine();
+
+            String result = p.checkPalindrome(str);
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+
+            System.out.println(e);
+        }
+    }
+}
+Step 8: Save All Files
+
+Press:
+
+Ctrl + Shift + S
+Step 9: Run Server
+
+Right click:
+
+Server.java
+
+Select:
+
+Run As → Java Application
+
+Output:
+
+Server Started
+Step 10: Run Client
+
+Right click:
+
+Client.java
+
+Select:
+
+Run As → Java Application
+Step 11: Enter Input
+
+Example:
+
+madam
+
+Output:
+
+Palindrome String
+
+Example:
+
+hello
+
+Output:
+
+Not Palindrome String

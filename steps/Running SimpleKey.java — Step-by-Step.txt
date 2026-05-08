@@ -1,0 +1,66 @@
+Running SimpleKey.java — Step-by-Step Process
+Step 1: Save the Program
+Save your Java file as:
+SimpleKey.java
+Example location:
+Desktop\java
+
+Step 2: Open Command Prompt
+Press:
+Win + R
+Type:
+cmd
+Press Enter.
+
+Step 3: Go to Java Folder
+Type:
+cd Desktop\java
+Press Enter.
+
+Step 4: Compile the Program
+Type:
+"C:\Program Files\Java\jdk1.8.0_202\bin\javac" SimpleKey.java
+Press Enter.
+If compilation is successful:
+
+
+no error appears
+
+
+SimpleKey.class file is created
+
+
+
+Step 5: Run the Program
+Type:
+"C:\Program Files\Java\jdk1.8.0_202\bin\java" SimpleKey
+Press Enter.
+
+Step 6: Output
+A GUI window opens.
+
+
+Press any key → title changes to:
+Key Down
+
+
+Release key → title changes to:
+Key Up
+
+
+Typed characters appear inside the window.
+
+
+
+Important Note
+Correct command:
+java SimpleKey
+Wrong command:
+java SimpleKey.java
+Because java runs the class name, not the .java file.
+
+Optional Permanent Fix
+Add this path to Environment Variables → PATH:
+C:\Program Files\Java\jdk1.8.0_202\bin
+Then you can directly use:
+javac SimpleKey.javajava SimpleKey

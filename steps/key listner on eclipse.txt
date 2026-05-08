@@ -1,0 +1,166 @@
+Step 1: Open Eclipse IDE
+
+Start Eclipse IDE
+
+Step 2: Create New Java Project
+
+Click:
+
+File → New → Java Project
+
+Project Name:
+
+AWTProject
+
+Click:
+
+Finish
+Step 3: Delete module-info.java
+
+In Package Explorer (left side):
+
+Find:
+
+module-info.java
+
+Right click → Delete → OK
+
+This removes AWT access errors.
+
+Step 4: Create Package
+
+Right click on:
+
+src
+
+Select:
+
+New → Package
+
+Package name:
+
+mypackage
+
+Click:
+
+Finish
+Step 5: Create Java Class
+
+Right click on package:
+
+mypackage
+
+Select:
+
+New → Class
+
+Class name:
+
+SimpleKey
+
+Tick:
+
+public static void main(String[] args)
+
+Click:
+
+Finish
+Step 6: Remove Default Code
+
+Eclipse creates:
+
+package mypackage;
+
+public class SimpleKey {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+Delete everything.
+
+Step 7: Paste Full Program
+
+Paste this code:
+
+package mypackage;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class SimpleKey extends Frame implements KeyListener
+{
+    String msg = "";
+    int X = 100, Y = 100;
+
+    public static void main(String[] args)
+    {
+        SimpleKey window = new SimpleKey();
+        window.setVisible(true);
+        window.requestFocus();
+    }
+
+    public SimpleKey()
+    {
+        setTitle("SimpleKey");
+        setSize(300, 100);
+
+        addKeyListener(this);
+
+        addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e)
+            {
+                dispose();
+                System.exit(0);
+            }
+        });
+    }
+
+    public void keyPressed(KeyEvent ke)
+    {
+        setTitle("SimpleKey - Key Down");
+    }
+
+    public void keyReleased(KeyEvent ke)
+    {
+        setTitle("SimpleKey - Key Up");
+    }
+
+    public void keyTyped(KeyEvent ke)
+    {
+        msg += ke.getKeyChar();
+        repaint();
+    }
+
+    public void paint(Graphics g)
+    {
+        g.drawString(msg, X, Y);
+    }
+}
+Step 8: Save the Program
+
+Press:
+
+Ctrl + S
+
+Eclipse automatically compiles the code.
+
+If no red errors appear → compilation successful.
+
+Step 9: Run the Program
+
+Click:
+
+Run → Run As → Java Application
+
+OR click the green ▶ button.
+
+Step 10: Program Output
+
+A small AWT window opens.
+
+Click inside the window and type.

@@ -1,0 +1,17 @@
+Step 4: Create Interface File
+
+Create class/interface:
+
+Palindrome.java
+
+Paste:
+
+package rmi;
+
+import java.rmi.*;
+
+public interface Palindrome extends Remote {
+
+    public String checkPalindrome(String str)
+            throws RemoteException;
+}
