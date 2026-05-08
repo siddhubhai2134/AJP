@@ -1,0 +1,114 @@
+Steps to Run Calculator Servlet in Eclipse using Tomcat 10
+1. Start Eclipse
+
+Open Eclipse IDE
+
+2. Create Dynamic Web Project
+Click File → New → Dynamic Web Project
+Project Name: CalculatorApp
+Target Runtime: Select Apache Tomcat 10
+Click Finish
+3. Create HTML File
+
+Inside src/main/webapp
+
+Right click → New → HTML File
+File name: calc.html
+
+Paste:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+</head>
+<body>
+
+<h2>Calculator</h2>
+
+<form action="CalculatorServlet" method="post">
+
+First Number:
+<input type="text" name="txtN1"><br><br>
+
+Second Number:
+<input type="text" name="txtN2"><br><br>
+
+Select Operation:
+<select name="opr">
+    <option value="+">Addition</option>
+    <option value="-">Subtraction</option>
+    <option value="*">Multiplication</option>
+    <option value="/">Division</option>
+</select>
+
+<br><br>
+
+<input type="submit" value="Calculate">
+
+</form>
+
+</body>
+</html>
+4. Create Servlet Class
+Right click on Java Resources/src/main/java
+New → Package
+Package name:
+com.demo
+Right click package → New → Servlet
+Class Name:
+CalculatorServlet
+Click Finish
+5. Replace Generated Code
+
+Delete old code and paste your servlet code.
+
+6. Add Annotation
+
+Add this above class name:
+
+@WebServlet("/CalculatorServlet")
+
+Final beginning should look like:
+
+import jakarta.servlet.annotation.WebServlet;
+
+@WebServlet("/CalculatorServlet")
+public class CalculatorServlet extends HttpServlet {
+7. Configure Tomcat Server
+
+If Tomcat not added:
+
+Window → Preferences
+Server → Runtime Environments
+Add → Apache Tomcat v10.1
+Browse Tomcat folder
+Finish
+8. Add Project to Server
+Open Servers tab
+Right click → New → Server
+Select Tomcat 10
+Add project
+Finish
+9. Run Project
+Right click project
+Run As → Run on Server
+10. Open Browser
+
+Browser opens automatically.
+
+Or manually open:
+
+http://localhost:8080/CalculatorApp/calc.html
+11. Test Application
+
+Example:
+
+First Number = 10
+Second Number = 5
+Operation = Addition
+
+Output:
+
+Result = 15
